@@ -78,7 +78,6 @@ if __name__ == "__main__":
 
             remote_folders = []
             for line in output.splitlines():
-                print (line)
                 if line in location.get('exclude_folders'):
                     continue
                 remote_folders.append(line)
@@ -94,6 +93,7 @@ if __name__ == "__main__":
                         pass
 
             for remote_folder in remote_folders:
+                print (remote_folder)
                 try:
                     cmd = 'sudo mkdir -p "' + os.path.join(location.get('local_folder'), remote_folder) + '"'
                     os.system(cmd)
