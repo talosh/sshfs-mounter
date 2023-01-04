@@ -6,6 +6,7 @@
         "identity_file": "/etc/ssh/ssh_host_rsa_key",
         "exclude_folders": [
             "Macintosh HD",
+            "Data",
             "Recovery",
             "beyonce",
             "dl-tests",
