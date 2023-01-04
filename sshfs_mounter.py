@@ -50,8 +50,7 @@ if __name__ == "__main__":
     current_config = get_config_data(config_folder_path)
     locations = current_config.get('locations')
     if not isinstance(locations, list):
-        print ('huipizda')
-    sys.exit()
+        locations = []
 
     while True:
         for location in locations:
