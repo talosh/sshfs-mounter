@@ -62,6 +62,8 @@ if __name__ == "__main__":
 
             mount_options = location.get('mount_options')
             identity_file = location.get('identity_file')
+            if "IdentityFile" in mount_options:
+                print (mount_options)
 
             args = ['ssh']
             if identity_file:
@@ -81,10 +83,6 @@ if __name__ == "__main__":
                     continue
                 remote_folders.append(line)
             local_folders = [x for x in os.listdir(location.get('local_folder'))]
-
-            pprint (remote_folders)
-
-            sys.exit()
 
             for local_folder in local_folders:
                 if local_folder not in remote_folders:
