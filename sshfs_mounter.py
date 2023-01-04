@@ -89,9 +89,9 @@ if __name__ == "__main__":
                 for line in output.splitlines():
                     if line in location.get('exclude_folders'):
                         continue
-                    if os.path.join(remote_location, line) in location.get('exclude_folders'):
+                    elif os.path.join(remote_location, line) in location.get('exclude_folders'):
                         continue
-                remote_folders[line] = remote_location
+                    remote_folders[line] = remote_location
 
             pprint (remote_folders)
             sys.exit()
