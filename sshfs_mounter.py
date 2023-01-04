@@ -74,23 +74,29 @@ if __name__ == "__main__":
             elif not isinstance(remote_locations, list):
                 print ('remote locations should be list but found %s' % type(location))
                 remote_locations = []
+
+            remote_folders = {}
+            for remote_location in remote_locations:
+                args = ['ssh']
+                if identity_file:
+                    args.append('-i')
+                    args.append(identity_file)
+                args.append(location.get('user@machine'))
+                args.append('ls -1 ' + remote_location)
+
+                p = subprocess.Popen(args, stdout=subprocess.PIPE)
+                output = p.communicate()[0].decode()
+
+                for line in output.splitlines():
+                    if line in location.get('exclude_folders'):
+                        continue
+                    if os.path.join(remote_location, line) in location.get('exclude_folders'):
+                        continue
+                remote_folders[line] = remote_location
+
+            pprint (remote_folders)
+            sys.exit()
             
-            args = ['ssh']
-            if identity_file:
-                args.append('-i')
-                args.append(identity_file)
-            args.append(location.get('user@machine'))
-            args.append('ls -1 ' + location.get('remote_folder'))
-
-
-            p = subprocess.Popen(args, stdout=subprocess.PIPE)
-            output = p.communicate()[0].decode()
-
-            remote_folders = []
-            for line in output.splitlines():
-                if line in location.get('exclude_folders'):
-                    continue
-                remote_folders.append(line)
             local_folders = [x for x in os.listdir(location.get('local_folder'))]
 
             for local_folder in local_folders:
