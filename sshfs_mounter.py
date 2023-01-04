@@ -60,8 +60,13 @@ if __name__ == "__main__":
                 pprint (location)
                 continue
 
-            mount_options = location.get('')
+            mount_options = location.get('mount_options')
+            identity_file = location.get('identity_file')
+
             args = ['ssh']
+            if identity_file:
+                args.append('-i')
+                args.append(identity_file)
             args.append(location.get('user@machine'))
             args.append('ls -1 ' + location.get('remote_folder'))
 

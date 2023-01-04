@@ -3,6 +3,7 @@
         "user@machine": "dladmin@10.1.16.30",
         "remote_folder": "/Volumes/",
         "local_folder": "/Volumes/",
+        "identity_file": "/etc/ssh/ssh_host_rsa_key",
         "exclude_folders": [
             "G-UTILITIES",
             "mnt",
