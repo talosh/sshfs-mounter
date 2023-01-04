@@ -93,32 +93,39 @@ if __name__ == "__main__":
                         continue
                     remote_folders[line] = remote_location
 
-            pprint (remote_folders)
-            sys.exit()
-            
-            local_folders = [x for x in os.listdir(location.get('local_folder'))]
+            local_locations = location.get('local_locations')
+            if not local_locations:
+                local_locations = []
+            elif isinstance(local_locations, str):
+                local_locations = [local_locations]
+            elif not isinstance(local_locations, list):
+                print ('local locations should be list but found %s' % type(location))
+                remote_locations = []
 
-            for local_folder in local_folders:
-                if local_folder not in remote_folders:
+            for local_location in local_locations:
+                local_folders = [x for x in os.listdir(local_location)]
+
+                for local_folder in local_folders:
+                    if local_folder not in remote_folders.keys():
+                        try:
+                            local_folder_path = os.path.join(location.get('local_folder'), local_folder)
+                            cmd = 'umount "' + local_folder_path + '"; sudo rmdir "' + local_folder_path + '"'
+                            os.system(cmd)
+                        except:
+                            pass
+
+                for remote_folder in remote_folders.keys():
                     try:
-                        local_folder_path = os.path.join(location.get('local_folder'), local_folder)
-                        cmd = 'sudo umount "' + local_folder_path + '"; sudo rmdir "' + local_folder_path + '"'
+                        cmd = 'mkdir -p "' + os.path.join(location.get('local_folder'), remote_folder) + '"'
+                        os.system(cmd)
+                        cmd = 'sshfs ' + location.get('user@machine') + ':"'
+                        cmd += os.path.join(location.get('remote_folder'), remote_folder) + '" '
+                        cmd += '"' + os.path.join(location.get('local_folder'), remote_folder) + '" '
+                        cmd += '-o ' + mount_options
+                        cmd += ' 2>/dev/null'
                         os.system(cmd)
                     except:
                         pass
-
-            for remote_folder in remote_folders:
-                try:
-                    cmd = 'mkdir -p "' + os.path.join(location.get('local_folder'), remote_folder) + '"'
-                    os.system(cmd)
-                    cmd = 'sshfs ' + location.get('user@machine') + ':"'
-                    cmd += os.path.join(location.get('remote_folder'), remote_folder) + '" '
-                    cmd += '"' + os.path.join(location.get('local_folder'), remote_folder) + '" '
-                    cmd += '-o ' + mount_options
-                    cmd += ' 2>/dev/null'
-                    os.system(cmd)
-                except:
-                    pass
 
         time.sleep(poll_intervall)
 
