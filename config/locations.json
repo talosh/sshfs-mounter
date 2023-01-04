@@ -13,6 +13,7 @@
             "images1",
             "images1-1",     
             "minaj"
-        ]
+        ],
+        "mount_options": "ro,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3,uid=506,gid=506,allow_other,IdentityFile=/etc/ssh/ssh_host_rsa_key"
     }
 ]
