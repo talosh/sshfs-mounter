@@ -82,7 +82,7 @@ if __name__ == "__main__":
                 remote_folders.append(line)
             local_folders = [x for x in os.listdir(location.get('local_folder'))]
 
-            pprint (local_folders)
+            pprint (remote_folders)
 
             sys.exit()
 
