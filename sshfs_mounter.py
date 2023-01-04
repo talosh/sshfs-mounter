@@ -120,7 +120,7 @@ if __name__ == "__main__":
                         os.system(cmd)
                         cmd = 'sshfs ' + location.get('user@machine') + ':"'
                         cmd += os.path.join(remote_folders.get(remote_folder), remote_folder) + '" '
-                        cmd += '"' + os.path.join(local_folder, remote_folder) + '" '
+                        cmd += '"' + os.path.join(local_location, remote_folder) + '" '
                         cmd += '-o ' + mount_options
                         cmd += ' 2>/dev/null'
                         print (cmd)
