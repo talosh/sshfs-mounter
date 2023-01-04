@@ -1,5 +1,5 @@
 [
-    {
+    [{
         "user@machine": "dladmin@10.1.16.30",
         "remote_folder": "/Volumes/",
         "local_folder": "/Volumes/",
@@ -15,5 +15,5 @@
             "minaj"
         ],
         "mount_options": "ro,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3,uid=506,gid=506,allow_other,IdentityFile=/etc/ssh/ssh_host_rsa_key"
-    }
+    }]
 ]

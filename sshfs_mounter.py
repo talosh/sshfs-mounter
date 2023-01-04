@@ -51,10 +51,13 @@ if __name__ == "__main__":
     locations = current_config.get('locations')
     if not isinstance(locations, list):
         locations = []
-        mount_options = ""
 
     while True:
         for location in locations:
+            if not isinstance(location, dict):
+                print ('location is not a dictionary but %s' % type(location))
+                pprint (location)
+            mount_options = location.get('')
             args = ['ssh']
             args.append(location.get('user@machine'))
             args.append('ls -1 ' + location.get('remote_folder'))
