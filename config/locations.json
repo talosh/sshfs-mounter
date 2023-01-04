@@ -1,8 +1,8 @@
 [
     {
         "user@machine": "dladmin@10.1.16.30",
-        "remote_folder": "/Volumes/",
-        "local_folder": "/Volumes/",
+        "remote_folders": "/Volumes/",
+        "local_folders": ["/Volumes/", "/vol/flux1-images/solaar/"],
         "identity_file": "/etc/ssh/ssh_host_rsa_key",
         "exclude_folders": [
             "Macintosh HD",
@@ -11,7 +11,7 @@
             "beyonce",
             "dl-tests",
             "images1",
-            "images1-1",     
+            "images1-1",
             "minaj"
         ],
         "mount_options": "ro,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3,uid=506,gid=506,allow_other"
