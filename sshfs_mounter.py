@@ -49,7 +49,7 @@ if __name__ == "__main__":
     config_folder_path = os.path.join(app_location, 'config')
     current_config = get_config_data(config_folder_path)
     locations = current_config.get('locations')
-    if not isinstance(locations, dict()):
+    if not isinstance(locations, dict):
         print ('huipizda')
     sys.exit()
 
