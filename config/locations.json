@@ -1,8 +1,8 @@
 [
     {
-        "user@machine": "dladmin@10.1.15.30",
+        "user@machine": "dladmin@10.1.16.30",
         "remote_folder": "/Volumes/",
-        "local_folder": "/mnt/readonly/nicki/",
+        "local_folder": "/Volumes/",
         "exclude_folders": [
             "G-UTILITIES",
             "mnt",
