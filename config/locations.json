@@ -1,8 +1,8 @@
 [
     {
         "user@machine": "dladmin@10.1.16.30",
-        "remote_folders": ["/Volumes/"],
-        "local_folders": ["/Volumes/", "/vol/flux1-images/solaar/"],
+        "remote_locations": {"/Volumes/": "hiupizda"},
+        "local_locations": ["/Volumes/", "/vol/flux1-images/solaar/"],
         "identity_file": "/etc/ssh/ssh_host_rsa_key",
         "exclude_folders": [
             "Macintosh HD",

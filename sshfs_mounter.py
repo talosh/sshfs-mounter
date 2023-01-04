@@ -66,7 +66,15 @@ if __name__ == "__main__":
                 if "IdentityFile" not in mount_options:
                     mount_options += ',IdentityFile=' + identity_file
                     print (mount_options)
-
+            remote_locations = location.get('remote_locations')
+            if not remote_locations:
+                remote_locations = []
+            elif isinstance(remote_locations, str):
+                remote_locations = [remote_locations]
+            elif not isinstance(remote_locations, list):
+                print ('remote locations should be list but found %s' % type(location))
+                remote_locations = []
+            
             args = ['ssh']
             if identity_file:
                 args.append('-i')
