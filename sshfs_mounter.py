@@ -95,8 +95,9 @@ if __name__ == "__main__":
             for remote_folder in remote_folders:
                 print (remote_folder)
                 try:
-                    cmd = 'sudo mkdir -p "' + os.path.join(location.get('local_folder'), remote_folder) + '"'
-                    os.system(cmd)
+                    cmd = 'mkdir -p "' + os.path.join(location.get('local_folder'), remote_folder) + '"'
+                    print (cmd)
+                    # os.system(cmd)
                     cmd = 'sshfs ' + location.get('user@host') + ':"'
                     cmd += os.path.join(location.get('remote_folder'), remote_folder) + '" '
                     cmd += '"' + os.path.join(location.get('local_folder'), remote_folder) + '" '
