@@ -93,6 +93,8 @@ if __name__ == "__main__":
                         continue
                     remote_folders[line] = remote_location
 
+            pprint (remote_folders)
+
             local_locations = location.get('local_locations')
             if not local_locations:
                 local_locations = []
@@ -117,14 +119,13 @@ if __name__ == "__main__":
                 for remote_folder in remote_folders.keys():
                     try:
                         cmd = 'mkdir -p "' + os.path.join(local_location, remote_folder) + '"'
-                        print (cmd)
-                        # os.system(cmd)
+                        os.system(cmd)
                         cmd = 'sshfs ' + location.get('user@machine') + ':"'
                         cmd += os.path.join(remote_folders.get(remote_folder), remote_folder) + '" '
                         cmd += '"' + os.path.join(local_location, remote_folder) + '" '
                         cmd += '-o ' + mount_options
                         cmd += ' 2>/dev/null'
-                        # os.system(cmd)
+                        os.system(cmd)
                     except:
                         pass
 
