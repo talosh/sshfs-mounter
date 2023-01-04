@@ -87,14 +87,11 @@ if __name__ == "__main__":
                 output = p.communicate()[0].decode()
 
                 for line in output.splitlines():
-                    print (line)
                     if line in location.get('exclude_folders'):
                         continue
                     elif os.path.join(remote_location, line) in location.get('exclude_folders'):
                         continue
                     remote_folders[line] = remote_location
-
-            pprint (remote_folders)
 
             local_locations = location.get('local_locations')
             if not local_locations:
