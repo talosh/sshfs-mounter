@@ -73,7 +73,7 @@ if __name__ == "__main__":
 
             p = subprocess.Popen(args, stdout=subprocess.PIPE)
             output = p.communicate()[0].decode()
-            pprint (output)
+            pprint (output.splitlines())
 
             remote_folders = []
             for line in output.splitlines():
