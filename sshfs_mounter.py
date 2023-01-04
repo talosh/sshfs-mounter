@@ -65,7 +65,6 @@ if __name__ == "__main__":
             if mount_options and identity_file:
                 if "IdentityFile" not in mount_options:
                     mount_options += ',IdentityFile=' + identity_file
-                    print (mount_options)
             remote_locations = location.get('remote_locations')
             if not remote_locations:
                 remote_locations = []
