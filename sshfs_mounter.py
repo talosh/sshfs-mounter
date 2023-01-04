@@ -73,10 +73,10 @@ if __name__ == "__main__":
 
             p = subprocess.Popen(args, stdout=subprocess.PIPE)
             output = p.communicate()[0].decode()
-            pprint (output.splitlines())
 
             remote_folders = []
             for line in output.splitlines():
+                print (line)
                 if line in location.get('exclude_folders'):
                     continue
                 remote_folders.append(line)
