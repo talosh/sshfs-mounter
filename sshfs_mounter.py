@@ -70,6 +70,8 @@ if __name__ == "__main__":
             args.append(location.get('user@machine'))
             args.append('ls -1 ' + location.get('remote_folder'))
 
+            pprint (args)
+
             p = subprocess.Popen(args, stdout=subprocess.PIPE)
             output = p.communicate()[0]
             remote_folders = []
