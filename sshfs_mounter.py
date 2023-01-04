@@ -50,13 +50,16 @@ if __name__ == "__main__":
     current_config = get_config_data(config_folder_path)
     locations = current_config.get('locations')
     if not isinstance(locations, list):
-        locations = []
+        print ('locations should be list but found %s' % type(locations))
+        sys.exit()
 
     while True:
         for location in locations:
             if not isinstance(location, dict):
-                print ('location is not a dictionary but %s' % type(location))
+                print ('location should be a dictionary but found %s' % type(location))
                 pprint (location)
+                continue
+
             mount_options = location.get('')
             args = ['ssh']
             args.append(location.get('user@machine'))
