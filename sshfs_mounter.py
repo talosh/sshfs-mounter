@@ -97,12 +97,13 @@ if __name__ == "__main__":
                 try:
                     cmd = 'sudo mkdir -p "' + os.path.join(location.get('local_folder'), remote_folder) + '"'
                     os.system(cmd)
-                    cmd = 'sudo sshfs ' + location.get('user@host') + ':"'
+                    cmd = 'sshfs ' + location.get('user@host') + ':"'
                     cmd += os.path.join(location.get('remote_folder'), remote_folder) + '" '
                     cmd += '"' + os.path.join(location.get('local_folder'), remote_folder) + '" '
                     cmd += '-o ' + mount_options
+                    pprint (cmd)
                     # cmd += ' 2>/dev/null'
-                    os.system(cmd)
+                    # os.system(cmd)
                 except:
                     pass
 
