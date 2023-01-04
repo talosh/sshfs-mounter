@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 import os
 import sys
 import time
@@ -7,26 +5,6 @@ import subprocess
 from pprint import pprint, pformat
 
 poll_intervall = 2
-locations = [
-    {
-        'user@host': 'dladmin@10.1.15.30',
-        'remote_folder': '/Volumes/',
-        'local_folder': '/mnt/readonly/nicki/',
-        'exclude_folders': [
-            'G-UTILITIES',
-            'mnt',
-            'Macintosh HD',
-            'Recovery',
-            'beyonce',
-            'dl-tests',
-            'images1',
-            'images1-1',     
-            'minaj'
-        ]
-    }
-]
-
-mount_options = 'ro,reconnect,ServerAliveInterval=15,ServerAliveCountMax=3,uid=506,gid=506,allow_other,IdentityFile=/etc/ssh/ssh_host_rsa_key'
 
 def get_config_data(config_folder_path):
     import json
