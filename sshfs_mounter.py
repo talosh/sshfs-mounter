@@ -103,8 +103,7 @@ if __name__ == "__main__":
                     cmd += '"' + os.path.join(location.get('local_folder'), remote_folder) + '" '
                     cmd += '-o ' + mount_options
                     cmd += ' 2>/dev/null'
-                    pprint (cmd)
-                    # os.system(cmd)
+                    os.system(cmd)
                 except:
                     pass
 
