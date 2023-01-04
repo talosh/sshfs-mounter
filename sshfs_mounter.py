@@ -64,7 +64,7 @@ if __name__ == "__main__":
             identity_file = location.get('identity_file')
             if mount_options and identity_file:
                 if "IdentityFile" not in mount_options:
-                    mount_options += '.,IdentityFile=' + identity_file
+                    mount_options += ',IdentityFile=' + identity_file
                     print (mount_options)
 
             args = ['ssh']
