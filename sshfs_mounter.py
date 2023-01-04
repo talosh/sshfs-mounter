@@ -65,9 +65,6 @@ if __name__ == "__main__":
             args.append(location.get('user@machine'))
             args.append('ls -1 ' + location.get('remote_folder'))
 
-            pprint (args)
-            sys.exit()
-
             p = subprocess.Popen(args, stdout=subprocess.PIPE)
             output = p.communicate()[0]
             remote_folders = []
@@ -78,6 +75,8 @@ if __name__ == "__main__":
             local_folders = [x for x in os.listdir(location.get('local_folder'))]
 
             pprint (local_folders)
+
+            sys.exit()
 
             for local_folder in local_folders:
                 if local_folder not in remote_folders:
