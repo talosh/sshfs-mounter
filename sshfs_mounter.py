@@ -65,7 +65,7 @@ if __name__ == "__main__":
 
             args = ['ssh']
             if identity_file:
-                args.append('-i ')
+                args.append('-i')
                 args.append(identity_file)
             args.append(location.get('user@machine'))
             args.append('ls -1 ' + location.get('remote_folder'))
