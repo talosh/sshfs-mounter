@@ -1,0 +1,18 @@
+[
+    {
+        "user@host": "dladmin@10.1.15.30",
+        "remote_folder": "/Volumes/",
+        "local_folder": "/mnt/readonly/nicki/",
+        "exclude_folders": [
+            "G-UTILITIES",
+            "mnt",
+            "Macintosh HD",
+            "Recovery",
+            "beyonce",
+            "dl-tests",
+            "images1",
+            "images1-1",     
+            "minaj"
+        ]
+    }
+]
