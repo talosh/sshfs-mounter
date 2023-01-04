@@ -51,12 +51,17 @@ if __name__ == "__main__":
     locations = current_config.get('locations')
     if not isinstance(locations, list):
         locations = []
+        mount_options = ""
 
     while True:
         for location in locations:
             args = ['ssh']
             args.append(location.get('user@machine'))
             args.append('ls -1 ' + location.get('remote_folder'))
+
+            pprint (args)
+            sys.exit()
+
             p = subprocess.Popen(args, stdout=subprocess.PIPE)
             output = p.communicate()[0]
             remote_folders = []
