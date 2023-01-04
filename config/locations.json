@@ -5,8 +5,6 @@
         "local_folder": "/Volumes/",
         "identity_file": "/etc/ssh/ssh_host_rsa_key",
         "exclude_folders": [
-            "G-UTILITIES",
-            "mnt",
             "Macintosh HD",
             "Recovery",
             "beyonce",
