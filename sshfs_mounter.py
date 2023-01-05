@@ -4,6 +4,8 @@ import time
 import subprocess
 from pprint import pprint, pformat
 
+from daemon import Daemon
+
 poll_intervall = 2
 
 def get_config_data(config_folder_path):
