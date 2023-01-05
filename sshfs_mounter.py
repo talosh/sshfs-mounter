@@ -147,8 +147,6 @@ if __name__ == "__main__":
                             os.system(cmd)
                         except:
                             pass
-    except:
-        pass
     except (KeyboardInterrupt, SystemExit):
         for local_location in local_locations:
             local_folders = [x for x in os.listdir(local_location)]
@@ -156,6 +154,9 @@ if __name__ == "__main__":
             for local_folder in local_folders:
                 local_folder_path = os.path.join(local_location, local_folder)
                 unmount(local_folder_path)
+    except:
+        pass
+    
     finally:
         for local_location in local_locations:
             local_folders = [x for x in os.listdir(local_location)]
