@@ -7,6 +7,9 @@ from pprint import pprint, pformat
 
 poll_intervall = 2
 
+def handle_exit(sig, frame):
+    raise(SystemExit)
+
 def get_config_data(config_folder_path):
     import json
 
@@ -57,6 +60,9 @@ def unmount(local_folder_path):
         os.system(cmd)
     except Exception as e:
         print ('unable to remove "%s": %s' % (local_folder_path, pformat(e)))
+
+
+signal.signal(signal.SIGTERM, handle_exit)
 
 
 if __name__ == "__main__":
@@ -143,6 +149,13 @@ if __name__ == "__main__":
                             pass
     except:
         pass
+    except (KeyboardInterrupt, SystemExit):
+        for local_location in local_locations:
+            local_folders = [x for x in os.listdir(local_location)]
+
+            for local_folder in local_folders:
+                local_folder_path = os.path.join(local_location, local_folder)
+                unmount(local_folder_path)
     finally:
         for local_location in local_locations:
             local_folders = [x for x in os.listdir(local_location)]
