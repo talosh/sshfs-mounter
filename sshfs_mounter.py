@@ -9,7 +9,7 @@ poll_intervall = 2
 def get_config_data(config_folder_path):
     import json
 
-    print ('reading config files from ' + config_folder_path)
+    # print ('reading config files from ' + config_folder_path)
     
     data = dict()
     data['config_folder_path'] = config_folder_path
