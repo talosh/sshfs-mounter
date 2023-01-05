@@ -72,6 +72,7 @@ if __name__ == "__main__":
     signal.signal(signal.SIGABRT, handle_exit)
     signal.signal(signal.SIGBUS, handle_exit)
     signal.signal(signal.SIGFPE, handle_exit)
+    signal.signal(signal.SIGKILL, handle_exit)
     signal.signal(signal.SIGTERM, handle_exit)
 
     app_location = os.path.dirname(os.path.abspath(__file__))
