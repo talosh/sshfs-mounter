@@ -65,8 +65,8 @@ if __name__ == "__main__":
     local_folders = []
     local_locations = []
 
-    while True:
-        try:
+    try:
+        while True:
             current_config = get_config_data(config_folder_path)
             locations = current_config.get('locations')
             if not isinstance(locations, list):
@@ -142,15 +142,15 @@ if __name__ == "__main__":
                             os.system(cmd)
                         except:
                             pass
-        except:
-            pass
-        finally:
-            for local_location in local_locations:
-                local_folders = [x for x in os.listdir(local_location)]
+    except:
+        pass
+    finally:
+        for local_location in local_locations:
+            local_folders = [x for x in os.listdir(local_location)]
 
-                for local_folder in local_folders:
-                    local_folder_path = os.path.join(local_location, local_folder)
-                    unmount(local_folder_path)
+            for local_folder in local_folders:
+                local_folder_path = os.path.join(local_location, local_folder)
+                unmount(local_folder_path)
 
         time.sleep(poll_intervall)
 
