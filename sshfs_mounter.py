@@ -51,11 +51,12 @@ def unmount(local_folder_path):
     except Exception as e:
         print ('unable to unount "%s": %s' % (local_folder_path, pformat(e)))
     try:
-        cmd = '"rmdir "' + local_folder_path + '"'
+        cmd = 'rmdir "' + local_folder_path + '"'
         print ('removing directory "%s"' % local_folder_path)
         os.system(cmd)
     except Exception as e:
         print ('unable to remove "%s": %s' % (local_folder_path, pformat(e)))
+
 
 if __name__ == "__main__":
 
