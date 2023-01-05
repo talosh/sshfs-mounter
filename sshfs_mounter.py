@@ -62,10 +62,9 @@ def unmount(local_folder_path):
         print ('unable to remove "%s": %s' % (local_folder_path, pformat(e)))
 
 
-signal.signal(signal.SIGTERM, handle_exit)
-
-
 if __name__ == "__main__":
+
+    signal.signal(signal.SIGHUP, handle_exit)
 
     app_location = os.path.dirname(os.path.abspath(__file__))
     config_folder_path = os.path.join(app_location, 'config')
@@ -156,7 +155,7 @@ if __name__ == "__main__":
                 unmount(local_folder_path)
     except:
         pass
-    
+
     finally:
         for local_location in local_locations:
             local_folders = [x for x in os.listdir(local_location)]
