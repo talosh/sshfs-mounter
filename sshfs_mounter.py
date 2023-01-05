@@ -123,8 +123,6 @@ if __name__ == "__main__":
                 for local_location in local_locations:
                     local_folders = [x for x in os.listdir(local_location)]
 
-                    print (local_folders)
-
                     for local_folder in local_folders:
                         if local_folder not in remote_folders.keys():
                             local_folder_path = os.path.join(local_location, local_folder)
