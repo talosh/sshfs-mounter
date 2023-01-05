@@ -64,11 +64,11 @@ def unmount(local_folder_path):
 
 if __name__ == "__main__":
 
-    signal.signal(signal.SIGHUP, handle_exit)
-    signal.signal(signal.SIGINT, handle_exit)
-    signal.signal(signal.SIGQUIT, handle_exit)
-    signal.signal(signal.SIGILL, handle_exit)
-    signal.signal(signal.SIGTRAP, handle_exit)
+#    signal.signal(signal.SIGHUP, handle_exit)
+#    signal.signal(signal.SIGINT, handle_exit)
+#    signal.signal(signal.SIGQUIT, handle_exit)
+#    signal.signal(signal.SIGILL, handle_exit)
+#    signal.signal(signal.SIGTRAP, handle_exit)
     signal.signal(signal.SIGABRT, handle_exit)
     signal.signal(signal.SIGBUS, handle_exit)
     signal.signal(signal.SIGFPE, handle_exit)
