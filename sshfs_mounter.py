@@ -149,6 +149,5 @@ if __name__ == "__main__":
                     local_folder_path = os.path.join(local_location, local_folder)
                     unmount(local_folder_path)
 
-
         time.sleep(poll_intervall)
 
