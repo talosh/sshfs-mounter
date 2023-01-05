@@ -46,10 +46,10 @@ def get_config_data(config_folder_path):
 def unmount(local_folder_path):
     try:
         cmd = 'umount "' + local_folder_path + '"'
-        print ('trying to unount "%s"' % local_folder_path)
+        print ('trying to unmount "%s"' % local_folder_path)
         os.system(cmd)
     except Exception as e:
-        print ('unable to unount "%s": %s' % (local_folder_path, pformat(e)))
+        print ('unable to unmount "%s": %s' % (local_folder_path, pformat(e)))
     try:
         cmd = 'rmdir "' + local_folder_path + '"'
         print ('removing directory "%s"' % local_folder_path)
@@ -122,6 +122,8 @@ if __name__ == "__main__":
 
                 for local_location in local_locations:
                     local_folders = [x for x in os.listdir(local_location)]
+
+                    print (local_folders)
 
                     for local_folder in local_folders:
                         if local_folder not in remote_folders.keys():
